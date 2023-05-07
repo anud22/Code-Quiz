@@ -3,6 +3,7 @@ var score = 0;
 var timeLimit = 30;
 var startQuizBtn = document.querySelector(".startBtn");
 var questionCard = document.querySelector(".question-card");
+var initialsForm = document.querySelector(".form-section");
 var quizStartCard = document.querySelector(".quiz-start");
 var qsTxt = document.querySelector(".qs");
 var scoreTxt = document.querySelector(".score");
@@ -10,12 +11,12 @@ var ansTxt = document.querySelector(".ans");
 var optionsLst = document.querySelector(".qs-options");
 var commentsTxt = document.querySelector(".comment");
 var timerTxt = document.querySelector(".timer-status");
-
 var index = 0;
 var timer;
 
 startQuizBtn.addEventListener("click", openQuiz);
 optionsLst.addEventListener("click", checkAnswer);
+initialsForm.addEventListener("click", getScore);
 
 init();
 
@@ -24,9 +25,7 @@ function openQuiz() {
         timerTxt.textContent = --timeLimit;
         if (timeLimit <= 0) {
             clearInterval(timer);
-            if (timeLimit < 0) {
-                timerTxt.textContent = 0;
-            }
+            timerTxt.textContent = 0;
             cleanUp();
             displayScore();
             return;
@@ -37,12 +36,9 @@ function openQuiz() {
 
 function loadQuiz(num) {
     cleanUp();
-    if (index > quizList.length - 1 || timeLimit <= 0) {
+    if (index > quizList.length - 1) {
         clearInterval(timer);
-        if (timeLimit < 0) {
-            timerTxt.textContent = 0;
-        }
-        displayScore();
+         displayScore();
         return;
     }
     qsTxt.textContent = quizList[num].question;
@@ -120,11 +116,18 @@ function displayScore() {
     displayInitialsForm();
 }
 
-function displayInitialsForm(){
-    questionCard.appendChild(createForm());
+function displayInitialsForm() {
+    initialsForm.appendChild(createForm());
 }
 
-function createForm(){
+function getScore(event) {
+    if (event.target.id === 'submitInitial'){
+        event.preventDefault();
+        window.location.href = "highscore.html";
+    }
+}
+
+function createForm() {
     var form = document.createElement('form');
     var label = document.createElement('label');
     label.for = 'initials';
@@ -135,6 +138,7 @@ function createForm(){
     input.placeholder = 'Initials';
     var btn = document.createElement('button');
     btn.type = 'submit';
+    btn.id = 'submitInitial';
     btn.innerHTML = 'Submit';
     btn.classList.add("startBtn");
     form.appendChild(label);
