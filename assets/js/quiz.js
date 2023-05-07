@@ -26,7 +26,7 @@ export var quizList = [{
 {
   question: "How can you add a comment in a JavaScript?",
   options: ["// This is comment", "!This is comment", "* This is comment", "<!-- This is comment -->"],
-  answer: "//This is a comment"
+  answer: "// This is comment"
 },
 {
   question: "How do you round the number 7.25, to the nearest integer?",

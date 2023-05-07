@@ -1,5 +1,6 @@
 import { quizList } from './quiz.js';
 var score = 0;
+var timeLimit = 30;
 var startQuizBtn = document.getElementById("startBtn");
 var questionCard = document.querySelector(".question-card");
 var quizStartCard = document.querySelector(".quiz-start");
@@ -8,21 +9,39 @@ var scoreTxt = document.querySelector(".score");
 var ansTxt = document.querySelector(".ans");
 var optionsLst = document.querySelector(".qs-options");
 var commentsTxt = document.querySelector(".comment");
+var timerTxt = document.querySelector(".timer-status");
 
 var index = 0;
+var timer;
 
 startQuizBtn.addEventListener("click", openQuiz);
 optionsLst.addEventListener("click", checkAnswer);
 
+init();
 
 function openQuiz() {
-    index = 0;
+    timer = setInterval(function () {
+        timerTxt.textContent = --timeLimit;
+        if (timeLimit <= 0) {
+            clearInterval(timer);
+            if (timeLimit < 0) {
+                timerTxt.textContent = 0;
+            }
+            cleanUp();
+            displayScore();
+            return;
+        }
+    }, 1000);
     loadQuiz(index);
 }
 
 function loadQuiz(num) {
-    init();
-    if (index > quizList.length - 1) {
+    cleanUp();
+    if (index > quizList.length - 1 || timeLimit <= 0) {
+        clearInterval(timer);
+        if (timeLimit < 0) {
+            timerTxt.textContent = 0;
+        }
         displayScore();
         return;
     }
@@ -48,12 +67,17 @@ function loadQuiz(num) {
     ++index;
 }
 
-function init() {
+function cleanUp() {
     hideElement(questionCard);
     deleteElements();
     hideElement(quizStartCard);
     commentsTxt.textContent = "";
     scoreTxt.textContent = "";
+}
+function init() {
+    index = 0;
+    timeLimit = 30;
+    timerTxt.textContent = timeLimit;
 }
 
 function hideElement(element) {
@@ -75,6 +99,7 @@ function checkAnswer(event) {
         ++score;
     } else {
         commentsTxt.textContent = "Wrong Answer!!!";
+        timeLimit -= 10;
     }
     setTimeout(function () {
         loadQuiz(index);
