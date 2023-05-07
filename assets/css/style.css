@@ -82,11 +82,17 @@ main{
   align-items: center;
   gap: 2rem;
 }
+
+
 .qs-options{
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: left;
+  width: 100%;
+  list-style-type: none;
+  justify-content: center;
+  
+  }
 
 h1{
   height: 10%;
@@ -104,6 +110,39 @@ p{
   text-align: center;
 }
 
+input[type="checkbox"] + label:before{
+  width: .7rem;
+  height:.7rem;
+  display: inline-block;
+  border-radius:50%;
+  border: 2px solid #ccc;
+  position: absolute;
+  cursor: pointer;
+  content:"";
+  text-align:center;
+}
+
+li:checked > label:before{
+  background-color:black;
+}
+
+li input[type="checkbox"] {
+  margin-right: 20px;
+  display:none;
+
+}
+li label{
+  margin-right:20px;
+display:inline-block;
+vertical-align: middle;
+}
+li:hover{
+  background-color : lightgray;
+}
+.ans{
+  display: none;
+ 
+}
 @media only screen and (max-width: 800px) {
   .card {
     width: 80vw;
