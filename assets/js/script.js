@@ -36,9 +36,10 @@ function openQuiz() {
 
 function loadQuiz(num) {
     cleanUp();
-    if (index > quizList.length - 1) {
+    if (index > quizList.length - 1 || timeLimit <= 0) {
         clearInterval(timer);
-         displayScore();
+        cleanUp();
+        displayScore();
         return;
     }
     qsTxt.textContent = quizList[num].question;
@@ -86,6 +87,14 @@ function showElement(element) {
     element.classList.add("flex");
 }
 
+function showElementIfHidden(element) {
+    var classes = element.classList;
+    if (classes.includes("hidden")) {
+        element.classList.remove("hidden");
+        element.classList.add("flex");
+    }
+}
+
 function checkAnswer(event) {
     var actualAnswer = event.target.textContent.trim();
     var expectedAnswer = ansTxt.textContent.trim();
@@ -110,25 +119,34 @@ function deleteElements() {
     }
 }
 function displayScore() {
-    showElement(questionCard);
     qsTxt.textContent = "All done!"
     scoreTxt.textContent = "Your final score is " + score;
+    showElement(questionCard);
     displayInitialsForm();
 }
 
 function displayInitialsForm() {
-    initialsForm.appendChild(createForm());
+    if (initialsForm.children.length == 0) {
+        initialsForm.appendChild(createForm());
+    } else{
+        alert("hi");
+    }
 }
 
 function getScore(event) {
-    if (event.target.id === 'submitInitial'){
+    if (event.target.id === 'submitInitial') {
         event.preventDefault();
+        var initials = document.getElementById('initials').value.trim();
+        if (initials === "") {
+            return;
+        }
         window.location.href = "highscore.html";
     }
 }
 
 function createForm() {
     var form = document.createElement('form');
+    form.id = "initialsForm";
     var label = document.createElement('label');
     label.for = 'initials';
     label.innerHTML = 'Enter Initials:';
