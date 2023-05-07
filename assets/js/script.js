@@ -1,7 +1,7 @@
 import { quizList } from './quiz.js';
 var score = 0;
 var timeLimit = 30;
-var startQuizBtn = document.getElementById("startBtn");
+var startQuizBtn = document.querySelector(".startBtn");
 var questionCard = document.querySelector(".question-card");
 var quizStartCard = document.querySelector(".quiz-start");
 var qsTxt = document.querySelector(".qs");
@@ -117,4 +117,28 @@ function displayScore() {
     showElement(questionCard);
     qsTxt.textContent = "All done!"
     scoreTxt.textContent = "Your final score is " + score;
+    displayInitialsForm();
+}
+
+function displayInitialsForm(){
+    questionCard.appendChild(createForm());
+}
+
+function createForm(){
+    var form = document.createElement('form');
+    var label = document.createElement('label');
+    label.for = 'initials';
+    label.innerHTML = 'Enter Initials:';
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.id = 'initials';
+    input.placeholder = 'Initials';
+    var btn = document.createElement('button');
+    btn.type = 'submit';
+    btn.innerHTML = 'Submit';
+    btn.classList.add("startBtn");
+    form.appendChild(label);
+    form.appendChild(input);
+    form.appendChild(btn);
+    return form;
 }
