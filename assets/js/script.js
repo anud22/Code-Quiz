@@ -21,7 +21,7 @@ initialsForm.addEventListener("click", getScore);
 init();
 
 function openQuiz() {
-    timer = setInterval(function() {
+    timer = setInterval(function () {
         timerTxt.textContent = --timeLimit;
         if (timeLimit <= 0) {
             clearInterval(timer);
@@ -139,8 +139,8 @@ function getScore(event) {
         if (initials === "") {
             return;
         }
-        window.location.href = "highscore.html";
         saveHighestScoreInLocalStorage(initials, score);
+        window.location.href = "highscore.html";
     }
 }
 
@@ -166,20 +166,32 @@ function createForm() {
 }
 
 function saveHighestScoreInLocalStorage(uInitials, uScore) {
+    var userScores = [];
     var userScore = {
         initials: uInitials,
         score: uScore
-    }
-
-    if (localStorage.getItem("userScore") == null) {
-        localStorage.setItem("userScore", JSON.stringify(userScore));
+    };
+    localStorage.setItem("currentInitials", uInitials);
+    if (localStorage.getItem("userScores") === null || localStorage.getItem("userScores").length === 0) {
+        userScores.push(userScore);
+        localStorage.setItem("userScores", JSON.stringify(userScores));
     } else {
-        var savedUserScore = localStorage.getItem("userScore");
-        if (savedUserScore.userScore < uScore) {
-            localStorage.setItem("userScore", JSON.stringify(userScore));
+        var savedUserScores = JSON.parse(localStorage.getItem("userScores"));
+        for (var index = 0; index < savedUserScores.length; ++index) {
+            if (savedUserScores[index].initials === uInitials) {
+                if (savedUserScores[index].score < uScore) {
+                    savedUserScores[index].score = uScore;
+                    localStorage.setItem("userScores", JSON.stringify(savedUserScores));
+                }
+                return;
+            }
         }
+        savedUserScores.push(userScore);
+        localStorage.setItem("userScores", JSON.stringify(savedUserScores));
     }
 
 }
+
+
 
 
