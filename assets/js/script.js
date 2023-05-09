@@ -1,6 +1,6 @@
 import { quizList } from './quiz.js';
 var score = 0;
-var timeLimit = 30;
+var timeLimit = 60;
 var startQuizBtn = document.querySelector(".startBtn");
 var questionCard = document.querySelector(".question-card");
 var initialsForm = document.querySelector(".form-section");
@@ -73,7 +73,6 @@ function cleanUp() {
 }
 function init() {
     index = 0;
-    timeLimit = 30;
     timerTxt.textContent = timeLimit;
 }
 

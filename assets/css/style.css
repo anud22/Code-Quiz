@@ -124,7 +124,7 @@ main{
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  height:85%;
+  height:75%;
   padding: 2rem;
   width:30%;
   font-size: var(--medium-font-size);
@@ -187,7 +187,6 @@ input[type="checkbox"] + label:before{
   display: inline-block;
   border-radius:50%;
   border: 2px solid #7e7c7c;
-  position: absolute;
   cursor: pointer;
   content:"";
   text-align:center;
@@ -221,7 +220,7 @@ li:hover{
   display: none;
 }
 
-/* Layout adjustment for screens <= 614px */
+/* Layout adjustment for smaller screens */
 @media screen and (max-width: 912px) {
  
   :root {

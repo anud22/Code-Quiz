@@ -32,6 +32,21 @@ export var quizList = [{
   question: "How do you round the number 7.25, to the nearest integer?",
   options: ["Math.round(7.25)", "Math.rnd(7.25)", "rnd(7.25)", "round(7.25)"],
   answer: "Math.round(7.25)"
+},
+{
+  question: "How do you find the number with the highest value of x and y?",
+  options: ["top(x, y)", "Math.ceil(x, y)", "Math.max(x, y)", "ceil(x, y)"],
+  answer: "Math.max(x, y)"
+},
+{
+  question: "JavaScript is the same as Java.",
+  options: ["False", "True"],
+  answer: "False"
+},
+{
+  question: "Which event occurs when the user clicks on an HTML element?",
+  options: ["onchange", "onmouseclick", "onclick", "onmouseover"],
+  answer: "onclick"
 }
 ]
 
