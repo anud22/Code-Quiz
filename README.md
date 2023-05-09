@@ -1,10 +1,9 @@
-*Code Quiz*
 
+# Code Quiz
 
-#### The project involve creation of build a timed coding quiz with multiple-choice questions. This app runs in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code.
+#### The web project involves creation of a timed Javascript coding quiz with multiple-choice questions. This app can be accessed in the browser and mobile devices.
 <br>
 <br>
-
 
 
 ## Table Of Contents
@@ -17,7 +16,7 @@
 <br>
 
 ### Description
-This website provides coding quiz with multiple-choice questions where user can submit score and see its highest score so far.
+This project provides timed Javascript quiz with multiple-choice questions where user can submit score and see its highest score so far.
 The web project is developed using HTML, CSS and javascript, web APIs, event handling, local storage.
 The web page present responsive layout.
 
@@ -27,14 +26,14 @@ Completed web project by accomplishing following tasks -
 * Use of semantic HTML elements and ensuring web accessibilty standards are met
 * Use of advanced CSS features to make web page more interactive, responsive. 
 * Use of web APIs, event handling and local storage.
-* Tested web page for different use cases
+* Tested web page for different use cases, in different screens.
 * Provided links to all of the deployed projects
 
 
-### Screenshot
-![Image 1](./assets/images/portfolio1.png) 
+### Video
+[Code Quiz](https://drive.google.com/file/d/1Gi3WTwyDVzpDiooZbyN2AoQCuyqbTBGq/view?usp=share_link)
 ### Deployment Links
-[Link of Deployed app ](https://anud22.github.io/myPortfolio/)
+[Link of Deployed app ](https://anud22.github.io/Code-Quiz/)
 
 ### References
 [msdn web docs](https://developer.mozilla.org/en-US/docs/Web/HTML)
