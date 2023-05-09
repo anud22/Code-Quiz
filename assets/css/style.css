@@ -5,45 +5,72 @@
   margin:0px;
   border: 0;
 }
+/* variables */
+:root {
+  --background-color: #f8f4f4;
+}
 
+/* Body style*/
 body {
-  font-size: 30px;
+  font-size: 1.6rem;
   font-family: "Roboto", sans-serif;
-  background-color: #eff5f8;
+  background-color: var(--background-color);
   color: #001b44;
   height: 100vh;
 }
 
+/* Header style */
 header{
   width: 100%;
   height:10%;
 }
+
+/* Nav style */
 nav{
   width: 100%;
   display: flex;
   font-size: 1rem;
   justify-content: space-between;
+  font-weight: bold;
 }
+
+/* Nav li style on hover*/
+nav > ul > li:hover{
+  background-color: var(--background-color);
+}
+
+/*All Unordered list style */
 ul{
   width:20%;
   list-style: none;
   text-decoration: none;
 }
+
+/*All Lists style*/
 li{
   margin:.5rem;
+  list-style: none;
 }
+
+/*All Anchors style*/
 a{
   text-decoration: none;
 }
+
+/*Timer style*/
 .countDown{
   margin-right: 1rem;
   width:30%;
 }
+
+/*Main section style*/
 main{
   width: 100%;
   height:80%;
 }
-.container{
+
+/*Main section parent container style*/
+.quiz-container{
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -51,6 +78,8 @@ main{
   padding: 1rem;
   height: 100%;
 }
+
+/*Quiz start button style*/
 .quiz-start{
   width: 100%;
   flex-direction: column;
@@ -58,12 +87,18 @@ main{
   padding: 1rem;
   height: 100%;
 }
+
+/*Class to hide element*/
 .hidden {
   display: none;
 }
+
+/*Class to change display to flex*/
 .flex {
   display: flex;
 }
+
+/*Container style that displays score elements*/
 .scores-container{
   display: flex;
   flex-direction: column;
@@ -72,13 +107,21 @@ main{
   text-align: left;
 }
 
-.highscore{
+/*Navigation buttons style in Scores section */
+.scores-nav{
   display: flex;
   align-items: center;
   gap : 1rem;
   margin-top: 3rem;
 }
 
+/* Score, comment text style*/
+.score,.comment{
+  font-style: italic;
+  color: #154997;
+}
+
+/*Quiz section style*/
 .quiz{
   display: flex;
   flex-direction: column;
@@ -90,13 +133,14 @@ main{
   font-size: 1.1rem;
 }
 
+/*Quiz section question style*/
 .question-card{
   flex-direction: column;
   align-items: center;
   gap: 2rem;
 }
 
-
+/*Quiz section options style*/
 .qs-options{
   display: flex;
   flex-direction: column;
@@ -104,61 +148,78 @@ main{
   width: 100%;
   list-style-type: none;
   justify-content: center;
-  
+  font-size: 1.4rem;
   }
 
+  /*H1 style*/
 h1{
   height: 10%;
   padding: .5rem;
   font-size: 2.3rem;
 }
-.startBtn, .backBtn, .clearBtn{
+
+/*Button style*/
+button{
     background-color: purple;
     font-size: 1.2rem;
     color: white;
     border-radius: .3rem;
     padding: .4rem;
 }
+
+/*Paragraph style*/
 p{
   text-align: center;
 }
+
+/*Input elements style*/
 input{
-  border: 1px solid black;
+  border: 1px solid rgb(150, 147, 147);
   margin-right: 1rem;
 }
+
+/*Label next to Checkbox style*/
 input[type="checkbox"] + label:before{
   width: .7rem;
   height:.7rem;
   display: inline-block;
   border-radius:50%;
-  border: 2px solid #ccc;
+  border: 2px solid #7e7c7c;
   position: absolute;
   cursor: pointer;
   content:"";
   text-align:center;
 }
 
-li:checked > label:before{
-  background-color:black;
+/*Form style*/
+form{
+  margin-bottom: 3rem;
 }
 
-li input[type="checkbox"] {
+/*Checbox style*/
+input[type="checkbox"] {
   margin-right: 20px;
   display:none;
-
 }
-li label{
-  margin-right:20px;
+
+/*Label style*/
+label{
+margin-right:20px;
 display:inline-block;
 vertical-align: middle;
 }
+
+/* List item hover style*/
 li:hover{
   background-color : lightgray;
 }
+
+/*Answer paragraph style*/
 .ans{
   display: none;
- 
 }
+
+/*Label style*/
 @media only screen and (max-width: 800px) {
   .card {
     width: 80vw;

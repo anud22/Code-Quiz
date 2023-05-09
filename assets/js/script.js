@@ -158,7 +158,6 @@ function createForm() {
     btn.type = 'submit';
     btn.id = 'submitInitial';
     btn.innerHTML = 'Submit';
-    btn.classList.add("startBtn");
     form.appendChild(label);
     form.appendChild(input);
     form.appendChild(btn);
